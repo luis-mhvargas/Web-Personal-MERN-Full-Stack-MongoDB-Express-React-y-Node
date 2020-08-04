@@ -42,11 +42,11 @@ export default function ListUsers(props) {
         <UsersInactive usersInactive={usersInactive} />
       )}
       <Modal
-        title="Mi modal"
-        isVisibleModal={true}
-        setIsVisibleModal={() => console.log("Mi modal")}
+        title={modalTitle}
+        isVisible={isVisibleModal}
+        setIsVisibleModal={setIsVisibleModal}
       >
-        Hola modal
+        {modalContent}
       </Modal>
     </div>
   );

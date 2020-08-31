@@ -2250,6 +2250,11 @@ atob@^2.1.2:
   resolved "https://registry.yarnpkg.com/atob/-/atob-2.1.2.tgz#6d9517eb9e030d2436666651e86bd9f6f13533c9"
   integrity sha512-Wm6ukoaOGJi/73p/cl2GvLjTI5JM1k/O14isD73YML8StrH/7/lRFgmg8nICZgD3bZZvjwCGxtMOD3wWNAu8cg==
 
+attr-accept@^2.0.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/attr-accept/-/attr-accept-2.2.0.tgz#7dc2a8b5e2653f90b1310d536c03574aec66de6c"
+  integrity sha512-Tee7K1V8BPZ3OS74UBk3I3e5wfSikSvjy2hb5UvnCJauA8gkg5MENw4dILT018rB3Lze1a3m93lhtJk7xFuAPQ==
+
 autoprefixer@^9.6.1:
   version "9.7.4"
   resolved "https://registry.yarnpkg.com/autoprefixer/-/autoprefixer-9.7.4.tgz#f8bf3e06707d047f0641d87aee8cfb174b2a5378"
@@ -3940,6 +3945,11 @@ dotenv@8.2.0:
   resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-8.2.0.tgz#97e619259ada750eea3e4ea3e26bceea5424b16a"
   integrity sha512-8sJ78ElpbDJBHNeBzUbUVLsqKdccaa/BXF1uPTw3GrvQTBgrQrtObr2mUrE38vzYd8cEv+m/JBfDLioYcfXoaw==
 
+dropzone@^5.7.2:
+  version "5.7.2"
+  resolved "https://registry.yarnpkg.com/dropzone/-/dropzone-5.7.2.tgz#91bee1572dda515d40901da304bc79dddf309b4c"
+  integrity sha512-m217bJHtf0J1IiKn4Tv6mnu1h5QvQNBnKZ39gma7hzGQhIZMxYq1vYEHs4AVd4ThFwmALys+52NAOD4zdLTG4w==
+
 duplexer@^0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/duplexer/-/duplexer-0.1.1.tgz#ace6ff808c1ce66b57d1ebf97977acb02334cfc1"
@@ -4584,6 +4594,13 @@ file-loader@4.3.0:
   dependencies:
     loader-utils "^1.2.3"
     schema-utils "^2.5.0"
+
+file-selector@^0.1.12:
+  version "0.1.12"
+  resolved "https://registry.yarnpkg.com/file-selector/-/file-selector-0.1.12.tgz#fe726547be219a787a9dcc640575a04a032b1fd0"
+  integrity sha512-Kx7RTzxyQipHuiqyZGf+Nz4vY9R1XGxuQl/hLoJwq+J4avk/9wxxgZyHKtbyIPJmbD4A66DWGYfyykWNpcYutQ==
+  dependencies:
+    tslib "^1.9.0"
 
 file-uri-to-path@1.0.0:
   version "1.0.0"
@@ -9364,6 +9381,15 @@ react-dom@^16.13.1:
     object-assign "^4.1.1"
     prop-types "^15.6.2"
     scheduler "^0.19.1"
+
+react-dropzone@^11.0.2:
+  version "11.0.2"
+  resolved "https://registry.yarnpkg.com/react-dropzone/-/react-dropzone-11.0.2.tgz#1a4084f520c2eafbeb24026760b3ee8f3759cfd3"
+  integrity sha512-/Wde9Il1aJ1FtWllg3N2taIeJh4aftx6UGUG8R1TmLnZit2RnDcEjcKwEEbKwgLXTTh8QQpiZWQJq45jTy1jCA==
+  dependencies:
+    attr-accept "^2.0.0"
+    file-selector "^0.1.12"
+    prop-types "^15.7.2"
 
 react-error-overlay@^6.0.7:
   version "6.0.7"

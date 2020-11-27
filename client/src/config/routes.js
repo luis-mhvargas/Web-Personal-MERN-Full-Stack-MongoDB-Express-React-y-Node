@@ -6,10 +6,13 @@ import LayoutBasic from "../layouts/LayoutBasic";
 import AdminHome from "../pages/Admin";
 import AdminSingIn from "../pages/Admin/SignIn";
 import AdminUsers from "../pages/Admin/Users";
+import AdminMenuWeb from "../pages/Admin/MenuWeb";
 
 // Pages Basic
 import Home from "../pages/Home";
 import Contact from "../pages/Contact";
+import Courses from "../pages/Courses";
+
 
 // Other
 import Error404 from "../pages/Error404";
@@ -35,6 +38,11 @@ const routes = [
         exact: true,
       },
       {
+        path: "/admin/menu",
+        component: AdminMenuWeb,
+        exact: true,
+      },
+      {
         component: Error404,
       },
     ],
@@ -52,6 +60,11 @@ const routes = [
       {
         path: "/contact",
         component: Contact,
+        exact: true,
+      },
+      {
+        path: "/courses",
+        component: Courses,
         exact: true,
       },
       {

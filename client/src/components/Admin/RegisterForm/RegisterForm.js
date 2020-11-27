@@ -143,7 +143,7 @@ export default function RegisterForm() {
         <Checkbox
           name="privacyPolicy"
           onChange={inputValidation}
-          checket={inputs.privacyPolicy}
+          checked={inputs.privacyPolicy}
         >
           He leido y acepto la politica de privacidad
         </Checkbox>

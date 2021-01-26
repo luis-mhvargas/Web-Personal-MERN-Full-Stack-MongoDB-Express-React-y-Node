@@ -1,23 +1,23 @@
-import React,{useState} from "react";
-import {Form,Input,Button,Select,notification, message} from "antd";
+import React, { useState } from "react";
+import { Form, Input, Button, Select, notification } from "antd";
 import "./AddMenuWebForm.scss";
 import { FontSizeOutlined } from "@ant-design/icons";
-import {addMenuApi} from "../../../../api/menu";
-import {getAccessTokenApi} from "../../../../api/auth";
+import { addMenuApi } from "../../../../api/menu";
+import { getAccessTokenApi } from "../../../../api/auth";
 
-export default function AddMenuWebForm(props){
-const {setIsVisibleModal,setReloadMenuWeb} = props;
-const  [menuWebData, setMenuWebData] = useState({});
+export default function AddMenuWebForm(props) {
+  const { setIsVisibleModal, setReloadMenuWeb } = props;
+  const [menuWebData, setMenuWebData] = useState({});
 
-const addMenu = event => {
+  const addMenu = (event) => {
     let finalData = {
       title: menuWebData.title,
-      url: (menuWebData.http ? menuWebData.http : "http://") + menuWebData.url
+      url: (menuWebData.http ? menuWebData.http : "http://") + menuWebData.url,
     };
 
     if (!finalData.title || !finalData.url || !menuWebData.url) {
       notification["error"]({
-        message: "Todos los campos son obligatorios."
+        message: "Todos los campos son obligatorios.",
       });
     } else {
       const accessToken = getAccessTokenApi();
@@ -25,9 +25,9 @@ const addMenu = event => {
       finalData.order = 1000;
 
       addMenuApi(accessToken, finalData)
-        .then(response => {
+        .then((response) => {
           notification["success"]({
-            message: response
+            message: response,
           });
           setIsVisibleModal(false);
           setReloadMenuWeb(true);
@@ -36,7 +36,7 @@ const addMenu = event => {
         })
         .catch(() => {
           notification["error"]({
-            message: "Error en el servidor."
+            message: "Error en el servidor.",
           });
         });
     }
@@ -54,42 +54,47 @@ const addMenu = event => {
 }
 
 function AddForm(props) {
-    const { menuWebData,setMenuWebData,addMenu} = props;
-    const { Option} =Select; 
+  const { menuWebData, setMenuWebData, addMenu } = props;
+  const { Option } = Select;
 
-    const selectBefore = (
-        <Select 
-        defaultValue="http://"
-        style={{width:90}}
-        onChange={ e => setMenuWebData({...menuWebData,http:e})}
-        >
-            <Option value="http://">htpp://</Option>
-            <Option value="https://">https://</Option>
-        </Select>
-    );
+  const selectBefore = (
+    <Select
+      defaultValue="http://"
+      style={{ width: 90 }}
+      onChange={(e) => setMenuWebData({ ...menuWebData, http: e })}
+    >
+      <Option value="http://">htpp://</Option>
+      <Option value="https://">https://</Option>
+    </Select>
+  );
 
-    return (
-        <Form className="form-add" onFinish={addMenu}>
-        <Form.Item>
-        <Input prefix={<FontSizeOutlined />}
-        placeholder="Titulo"
-         value={menuWebData.title}
-        onChange={e => setMenuWebData({...menuWebData,title:e.target.value})}
+  return (
+    <Form className="form-add" onFinish={addMenu}>
+      <Form.Item>
+        <Input
+          prefix={<FontSizeOutlined />}
+          placeholder="Titulo"
+          value={menuWebData.title}
+          onChange={(e) =>
+            setMenuWebData({ ...menuWebData, title: e.target.value })
+          }
         />
-        </Form.Item>
-        <Form.Item>
-            <Input 
-            addonBefore={selectBefore}
-            placeholder="URL"
-            value={menuWebData.url}
-            onChange={e => setMenuWebData({...menuWebData,url:e.target.value})}
-            />
-        </Form.Item>
-        <Form.Item>
-            <Button type="primary" htmlType="submit" className="btn-submit">
-                Crear menú
-            </Button>
-        </Form.Item>
-        </Form>
-    );
+      </Form.Item>
+      <Form.Item>
+        <Input
+          addonBefore={selectBefore}
+          placeholder="URL"
+          value={menuWebData.url}
+          onChange={(e) =>
+            setMenuWebData({ ...menuWebData, url: e.target.value })
+          }
+        />
+      </Form.Item>
+      <Form.Item>
+        <Button type="primary" htmlType="submit" className="btn-submit">
+          Crear menú
+        </Button>
+      </Form.Item>
+    </Form>
+  );
 }

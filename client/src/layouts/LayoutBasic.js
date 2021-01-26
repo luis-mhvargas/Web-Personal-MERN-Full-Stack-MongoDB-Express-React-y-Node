@@ -1,13 +1,13 @@
 import React from "react";
-import { Layout,Row,Col } from "antd";
+import { Row,Col } from "antd";
 import { Route, Switch } from "react-router-dom";
 import MenuTop from "../components/Web/MenuTop";
 import "./LayoutBasic.scss";
+import Footer from "../components/Web/Footer"
 
 export default function LayoutBasic(props) {
   const { routes } = props;
-  const { Footer } = Layout;
-  return (
+   return (
     <>
     <Row>
       <Col md={4} />
@@ -18,7 +18,7 @@ export default function LayoutBasic(props) {
       <Col lg={4} />
     </Row>
      <LoadRoutes routes ={routes} />
-     <Footer>HuskCode</Footer>
+     <Footer/>
      </>
   );
 }

@@ -9,7 +9,7 @@ import {
 } from "@ant-design/icons";
 
 import "./AddEditCourseForm.scss";
-import { addCourseApi } from "../../../../api/course";
+import { addCourseApi,updateCourseApi } from "../../../../api/course";
 
 export default function AddEditCourseForm(props) {
   const { setIsVisibleModal, setReloadCourses, course } = props;
@@ -45,8 +45,25 @@ export default function AddEditCourseForm(props) {
     }
   };
 
-  const updateCourse = (e) => {
-      
+  const updateCourse = e => {
+
+    const accessToken = getAccessTokenApi();
+
+    updateCourseApi(accessToken, course._id, courseData)
+      .then(response => {
+        const typeNotification = response.code === 200 ? "success" : "warning";
+        notification[typeNotification]({
+          message: response.message
+        });
+        setIsVisibleModal(false);
+        setReloadCourses(true);
+        setCourseData({});
+      })
+      .catch(() => {
+        notification["error"]({
+          message: "Error del servidor, intentelo más tarde."
+        });
+      });
   };
 
   return (

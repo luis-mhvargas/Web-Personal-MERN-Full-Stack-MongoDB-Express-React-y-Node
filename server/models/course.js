@@ -10,7 +10,7 @@ const CourseSchema = Schema({
   link: String,
   coupon: String,
   price: Number,
-  Order: Number
+  order: Number
 });
 
 module.exports = mongoose.model("CourseSchema", CourseSchema);

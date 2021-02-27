@@ -154,7 +154,7 @@ function Course(props) {
       <img
         src={courseData.image_480x270}
         alt={courseData.title}
-        style={{ width: "100px", marginRight: "200px" }}
+        style={{ width: "100px", marginRight: "20px" }}
       />
       <List.Item.Meta
         title={`${courseData.title} | ID: ${course.idCourse}`}

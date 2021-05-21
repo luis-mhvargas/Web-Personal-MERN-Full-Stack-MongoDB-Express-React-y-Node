@@ -1,7 +1,7 @@
 import { basePath, apiVersion } from "./config";
 
-export function getCoursesApi() {
-  const url = `${basePath}/${apiVersion}/get-courses`;
+export function getPostsApi(limit, page) {
+  const url = `${basePath}/${apiVersion}/get-posts?limit=${limit}&page=${page}`;
 
   return fetch(url)
     .then((response) => {
@@ -15,25 +15,8 @@ export function getCoursesApi() {
     });
 }
 
-export function getCourseDataUdemyApi(id) {
-  const baseUrl = `https://www.udemy.com/api-2.0/courses/${id}`;
-  const coursesParams = `?fields[course]=title,headline,url,price,image_480x270`;
-  const url = baseUrl + coursesParams;
-
-  return fetch(url)
-    .then(async (response) => {
-      return { code: response.status, data: await response.json() };
-    })
-    .then((result) => {
-      return result;
-    })
-    .catch((err) => {
-      return err;
-    });
-}
-
-export function deleteCourseApi(token, id) {
-  const url = `${basePath}/${apiVersion}/delete-course/${id}`;
+export function deletePostApi(token, id) {
+  const url = `${basePath}/${apiVersion}/delete-post/${id}`;
 
   const params = {
     method: "DELETE",
@@ -55,8 +38,8 @@ export function deleteCourseApi(token, id) {
     });
 }
 
-export function addCourseApi(token, course) {
-  const url = `${basePath}/${apiVersion}/add-course`;
+export function addPostApi(token, post) {
+  const url = `${basePath}/${apiVersion}/add-post`;
 
   const params = {
     method: "POST",
@@ -64,7 +47,7 @@ export function addCourseApi(token, course) {
       "Content-Type": "application/json",
       Authorization: token,
     },
-    body: JSON.stringify(course),
+    body: JSON.stringify(post),
   };
 
   return fetch(url, params)
@@ -79,8 +62,8 @@ export function addCourseApi(token, course) {
     });
 }
 
-export function updateCourseApi(token, id, data) {
-  const url = `${basePath}/${apiVersion}/update-course/${id}`;
+export function updatePostApi(token, id, data) {
+  const url = `${basePath}/${apiVersion}/update-post/${id}`;
 
   const params = {
     method: "PUT",
@@ -92,6 +75,21 @@ export function updateCourseApi(token, id, data) {
   };
 
   return fetch(url, params)
+    .then((response) => {
+      return response.json();
+    })
+    .then((result) => {
+      return result;
+    })
+    .catch((err) => {
+      return err;
+    });
+}
+
+export function getPostApi(urlPost) {
+  const url = `${basePath}/${apiVersion}/get-post/${urlPost}`;
+
+  return fetch(url)
     .then((response) => {
       return response.json();
     })

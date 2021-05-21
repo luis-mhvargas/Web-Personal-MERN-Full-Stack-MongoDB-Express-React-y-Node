@@ -119,8 +119,8 @@ export default function MenuWebList(props) {
       </div>
       <Modal
         title={modalTitle}
-        isVisibleModal={isVisibleModal}
-        setIsVisibleModal={setIsVisibleModal}
+        isVisible={isVisibleModal}
+        setIsVisible={setIsVisibleModal}
       >
         {modalContent}
       </Modal>

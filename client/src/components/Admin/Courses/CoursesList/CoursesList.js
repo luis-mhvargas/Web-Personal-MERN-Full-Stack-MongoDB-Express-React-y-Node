@@ -4,7 +4,11 @@ import DragSortableList from "react-drag-sortable";
 import Modal from "../../../Modal";
 import AddEditCourseForm from "../AddEditCourseForm";
 import { getAccessTokenApi } from "../../../../api/auth";
-import { deleteCourseApi, getCourseDataUdemyApi, updateCourseApi } from "../../../../api/course";
+import {
+  deleteCourseApi,
+  getCourseDataUdemyApi,
+  updateCourseApi,
+} from "../../../../api/course";
 import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
 
 import "./CoursesList.scss";
@@ -20,7 +24,7 @@ export default function CoursesList(props) {
 
   useEffect(() => {
     const listCourseArray = [];
-    courses.forEach(course => {
+    courses.forEach((course) => {
       listCourseArray.push({
         content: (
           <Course
@@ -28,7 +32,7 @@ export default function CoursesList(props) {
             deleteCourse={deleteCourse}
             editCourseModal={editCourseModal}
           />
-        )
+        ),
       });
     });
     setListCourses(listCourseArray);
@@ -38,7 +42,7 @@ export default function CoursesList(props) {
   const onSort = (sortedList, dropEvent) => {
     const accessToken = getAccessTokenApi();
 
-    sortedList.forEach(item => {
+    sortedList.forEach((item) => {
       const { _id } = item.content.props.course;
       const order = item.rank;
       updateCourseApi(accessToken, _id, { order });
@@ -112,8 +116,8 @@ export default function CoursesList(props) {
       </div>
       <Modal
         title={modalTitle}
-        isVisibleModal={isVisibleModal}
-        setIsVisibleModal={setIsVisibleModal}
+        isVisible={isVisibleModal}
+        setIsVisible={setIsVisibleModal}
       >
         {modalContent}
       </Modal>

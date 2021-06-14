@@ -5,7 +5,11 @@ const { API_VERSION, IP_SERVER, PORT_DB } = require("./config");
 
 mongoose.set("useFindAndModify", false);
 mongoose.connect(
-  `mongodb://${IP_SERVER}:${PORT_DB}/luismario`,
+  // Para conectarse local
+  //`mongodb://${IP_SERVER}:${PORT_DB}/luismario`,
+
+  // Para conectarse desde MongoDB Atlas
+  `mongodb+srv://MERN:L1M2H3V4mario@webpersonalmern.vflek.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`,
   {
     useUnifiedTopology: true,
     useNewUrlParser: true,

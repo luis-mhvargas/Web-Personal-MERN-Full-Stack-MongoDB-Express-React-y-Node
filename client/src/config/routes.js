@@ -14,7 +14,7 @@ import AdminBlog from "../pages/Admin/Blog";
 import Home from "../pages/Home";
 import Contact from "../pages/Contact";
 import Courses from "../pages/Courses";
-//import Blog from "../pages/Blog";
+import Blog from "../pages/Blog";
 
 // Other
 import Error404 from "../pages/Error404";
@@ -79,7 +79,7 @@ const routes = [
         component: Courses,
         exact: true,
       },
-      /* {
+      {
         path: "/blog",
         component: Blog,
         exact: true,
@@ -88,7 +88,7 @@ const routes = [
         path: "/blog/:url",
         component: Blog,
         exact: true,
-      },*/
+      },
       {
         component: Error404,
       },

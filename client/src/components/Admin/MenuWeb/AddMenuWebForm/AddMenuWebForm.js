@@ -63,7 +63,7 @@ function AddForm(props) {
       style={{ width: 90 }}
       onChange={(e) => setMenuWebData({ ...menuWebData, http: e })}
     >
-      <Option value="http://">htpp://</Option>
+      <Option value="http://">http://</Option>
       <Option value="https://">https://</Option>
     </Select>
   );

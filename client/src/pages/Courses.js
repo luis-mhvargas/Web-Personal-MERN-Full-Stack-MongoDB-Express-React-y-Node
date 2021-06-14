@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Row, Col, Spin, notification } from "antd";
 import { getCoursesApi } from "../api/course";
+import { Helmet } from "react-helmet";
 import PresentationCourses from "../components/Web/Courses/PresentationCourses";
 import CoursesList from "../components/Web/Courses/CoursesList";
 
@@ -27,13 +28,14 @@ export default function Courses() {
 
   return (
     <>
-      <title>Cursos | HuskCode</title>
-      <meta
-        name="description"
-        content="Cursos | Web sobre programación de HuskCode"
-        data-react-helmet="true"
-      />
-
+      <Helmet>
+        <title>Cursos | HuskCode</title>
+        <meta
+          name="description"
+          content="Cursos | Web sobre programación de HuskCode"
+          data-react-helmet="true"
+        />
+      </Helmet>
       <Row>
         <Col md={4} />
         <Col md={16}>
